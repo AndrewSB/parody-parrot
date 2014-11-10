@@ -7,4 +7,6 @@ twitter_stream = TwitterStream(auth=OAuth("183299989-LE4WbYNKTLxibK5vx1meVMEdZpU
 iterator = twitter_stream.statuses.sample()
 
 for tweet in iterator:
-	print type(tweet)
+	print json.dumps(tweet, indent=2)
+	if "favorite_count" in tweet:
+		print tweet["favorite_count"]
